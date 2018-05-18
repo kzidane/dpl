@@ -65,7 +65,7 @@ module DPL
         options[:env] || context.env['ELASTIC_BEANSTALK_ENV'] || raise(Error, "missing env")
       end
 
-      def force_update
+      def force_update?
         options[:force_update]
       end
 
@@ -193,7 +193,8 @@ module DPL
 
         begin
           eb.abort_environment_update(options)
-        rescue; end
+        rescue
+        end
 
         options[:attribute_names] = ["Status"]
         while eb.describe_environment_health(options).status != "Ready"
