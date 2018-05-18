@@ -369,6 +369,7 @@ It is possible to set file-specific `Cache-Control` and `Expires` headers using 
  * **bucket_name**: Bucket name to upload app to.
  * **bucket_path**: Location within Bucket to upload app to.
  * **only_create_app_version**: only create the app version, don't actually deploy it.
+ * **force_update**: cancel ongoing app deployment (if any) before deploying
 
 #### Environment variables:
 
