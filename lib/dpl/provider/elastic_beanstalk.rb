@@ -208,7 +208,7 @@ module DPL
           :version_label     => version[:application_version][:version_label]
         }
 
-        if force_update
+        if force_update?
           abort_update()
         end
 
