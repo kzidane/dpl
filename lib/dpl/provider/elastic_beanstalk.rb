@@ -37,6 +37,10 @@ module DPL
       end
 
       def push_app
+        if force_update?
+          abort_update()
+        end
+
         @start_time = Time.now
         create_bucket unless bucket_exists?
 
@@ -207,11 +211,6 @@ module DPL
           :environment_name  => env_name,
           :version_label     => version[:application_version][:version_label]
         }
-
-        if force_update?
-          abort_update()
-        end
-
         eb.update_environment(options)
       end
     end
